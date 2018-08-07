@@ -32,7 +32,7 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
                 $mapped_element = preg_replace('/\s\s+/', ' ', trim(implode(' ',$data_to_join)));
             }
             else{
-                $mapped_element = $sheet_row[$value];
+                $mapped_element = trim($sheet_row[$value]);
             }
             $mapped_row[$key] = $mapped_element;
         }
