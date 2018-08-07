@@ -125,7 +125,7 @@ if ($general_config != NULL && $mapping_variables != NULL){
             $input_data = readSheetFile(realpath($input_file_name));
             #var_dump($input_data);
             $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format);
-            var_dump($mapped_data);
+            #var_dump($mapped_data);
         }
         else{
             exit('"archivo_bd" ' . $input_file_name . " NO EXISTE O NO SE PUEDE LEER ESTE ARCHIVO\n");
@@ -178,6 +178,8 @@ if (isset($mapped_data)){
     var_dump( "ID PROCESO: ".$proceso);
     
     $first = TRUE;
+    $created_pdf = 0;
+    $not_created_pdf = 0;
     foreach ($mapped_data as $key => $mapped_row){
         
         if($first){
@@ -199,31 +201,28 @@ if (isset($mapped_data)){
         $full_path = realpath($temp_folder) . DIRECTORY_SEPARATOR . $fileName;
         $pdf_path = realpath($pdf_folder) . DIRECTORY_SEPARATOR . $pdfName;
         
-        try
-        {
-            
-            $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path);
-            var_dump("PDF PATH: " . $pdf_path);
-            if ( file_exists( $pdf_path ) ) {
-                $result = $fachada->insertarDocumento( $proceso, $pdfName, "CREADO");
-                var_dump( "ID documento: ".$result);
-            }
-            else{
-                $result = $fachada->insertarDocumento( $proceso, $pdfName, "ERROR: NO CREADO");
-                var_dump( "ID documento: ".$result);
-            }
-            var_dump(file_exists( $pdf_path ) );
-
+        $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path);
+        var_dump("PDF PATH: " . $pdf_path);
+        if ( file_exists( $pdf_path ) ) {
+            $result = $fachada->insertarDocumento( $proceso, $pdfName, "CREADO");
+            var_dump( "ID documento: " . $result . " CREADO");
+            $created_pdf++;
+    
         }
-        catch (Exception $exc) 
-        {
-            $error_message =  "Error creating the Word Document";
-            var_dump($exc);
+        else{
+            $result = $fachada->insertarDocumento( $proceso, $pdfName, "ERROR: NO CREADO");
+            var_dump( "ID documento: " . $result . " NO CREADO");
+            $not_created_pdf++;
         }
+        var_dump(file_exists( $pdf_path ) );
+        
     }
     
     array_map('unlink', glob($temp_folder . DIRECTORY_SEPARATOR . "*"));
     rmdir($temp_folder);
+    
+    var_dump('CREADOS: ' . $created_pdf);
+    var_dump('NO CREADOS: ' . $not_created_pdf);
 }
 
 ?>

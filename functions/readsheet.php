@@ -29,12 +29,12 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
                     $mapping = $sheet_row[$mapped_key];
                     $data_to_join[] = $mapping;
                 }
-                $mapped_element = preg_replace('/\s\s+/', ' ', trim(implode(' ',$data_to_join)));
+                $mapped_element = implode(' ',$data_to_join);
             }
             else{
-                $mapped_element = trim($sheet_row[$value]);
+                $mapped_element = $sheet_row[$value];
             }
-            $mapped_row[$key] = $mapped_element;
+            $mapped_row[$key] = preg_replace('/\s\s+/', ' ', trim($mapped_element));
         }
         
         //Mapping filename here also
