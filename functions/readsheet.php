@@ -33,8 +33,6 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
             }
             else{
                 $mapped_element = $sheet_row[$value];
-    $difference = $end_time - $start_time;
-    var_dump("Total: " . $difference);
             }
             $mapped_row[$key] = preg_replace('/\s\s+/', ' ', trim($mapped_element));
         }
