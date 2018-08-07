@@ -1,3 +1,4 @@
 vendor/
 pdf_results/
 composer.*
+config_server.cnf
