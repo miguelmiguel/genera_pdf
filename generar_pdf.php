@@ -20,6 +20,8 @@ function normalizePath($path) {
     '), 0);
 }
 
+$start_time = date("Y-m-d H:i:s");
+
 $config = array();
 
 if ($argc > 1){
@@ -223,6 +225,11 @@ if (isset($mapped_data)){
     
     var_dump('CREADOS: ' . $created_pdf);
     var_dump('NO CREADOS: ' . $not_created_pdf);
+    
+    $end_time = date("Y-m-d H:i:s");
+    var_dump("Start: " . $start_time);
+    var_dump("End: " . $end_time);
+    
 }
 
 ?>
