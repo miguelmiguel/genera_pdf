@@ -29,7 +29,7 @@ if ($argc > 1){
     }
 }
 else{
-    exit("config file IS MISSING ON ARGUMENTS\n");
+    exit("NO SE INGRESO ARCHIVO DE CONFIGURACION EN LOS ARGUMENTOS\n");
 }
 
 if (!empty($config)) {
@@ -45,7 +45,7 @@ else{
 
 // var_dump($mapping_variables);
 // var_dump($general_config);
-var_dump($pdf_filename_format);
+// var_dump($pdf_filename_format);
 
 
 if ($general_config != NULL && $mapping_variables != NULL){
@@ -54,15 +54,15 @@ if ($general_config != NULL && $mapping_variables != NULL){
         if (array_key_exists("soffice_path",$general_config)){
             $soffice_path = $general_config["soffice_path"];
             if (file_exists($soffice_path) && is_readable($soffice_path) && !is_dir($soffice_path) && is_executable($soffice_path) ){
-                var_dump('"soffice_path" ' . $soffice_path . ' EXISTS');
+                var_dump('"soffice_path" ' . $soffice_path . ' EXISTE');
             }
             else{
-                var_dump('"soffice_path" ' . $soffice_path . ' NOT EXISTS OR IS NOT EXECUTABLE');
+                var_dump('"soffice_path" ' . $soffice_path . ' NO EXISTE O NO PUEDE EJECUTARSE');
                 exit();
             }
         }
         else{
-            var_dump('"soffice_path" IS NOT SET');
+            var_dump('"soffice_path" NO ESTA DEFINIDO EN EL ARCHIVO DE CONFIG');
             exit();
         }
     }
@@ -81,11 +81,11 @@ if ($general_config != NULL && $mapping_variables != NULL){
     if (array_key_exists("ruta_in",$general_config)){
         $in_folder_name = $general_config["ruta_in"];
         if (!file_exists($in_folder_name) || !is_dir($in_folder_name)){
-            var_dump('"ruta_in" ' . $in_folder_name . ' FOLDER NOT EXISTS');
+            var_dump('"ruta_in" ' . $in_folder_name . ' NO EXISTE ESE DIRECTORIO');
             exit();
         }
         elseif (!is_readable($in_folder_name)){
-            var_dump('"ruta_in" ' . $in_folder_name . ' IS NOT READABLE');
+            var_dump('"ruta_in" ' . $in_folder_name . ' NO PUEDE LEERSE ESE DIRECTORIO');
             exit();
         }
     }
@@ -99,17 +99,17 @@ if ($general_config != NULL && $mapping_variables != NULL){
         {
             $created = mkdir($out_folder_name);
             if (!$created){
-                exit('"ruta_out" '. $out_folder_name . " CANNOT BE CREATED\n");
+                exit('"ruta_out" '. $out_folder_name . " NO PUDO SER CREADO ESTE DIRECTORIO\n");
             }
         }  
         elseif (!is_dir($out_folder_name)){
-            exit('"ruta_out" ' . $out_folder_name . " IS NOT A FOLDER\n");
+            exit('"ruta_out" ' . $out_folder_name . " NO ES UN DIRECTORIO\n");
         }
         elseif (!is_readable($out_folder_name)){
-            exit('"ruta_out" ' . $out_folder_name . " IS NOT READABLE\n");
+            exit('"ruta_out" ' . $out_folder_name . " NO PUEDE LEERSE ESTE DIRECTORIO\n");
         }
         elseif (!is_writable($out_folder_name)){
-            exit('"ruta_out" ' . $out_folder_name . " IS NOT WRITABLE\n");
+            exit('"ruta_out" ' . $out_folder_name . " NO SE PUEDE ESCRIBIR EN ESTE DIRECTORIO\n");
         }
     }
     else{
@@ -128,14 +128,14 @@ if ($general_config != NULL && $mapping_variables != NULL){
             var_dump($mapped_data);
         }
         else{
-            exit('"archivo_bd" ' . $input_file_name . " NOT READABLE OR NOT EXISTS\n");
+            exit('"archivo_bd" ' . $input_file_name . " NO EXISTE O NO SE PUEDE LEER ESTE ARCHIVO\n");
         }
     }
 
     if (array_key_exists("plantilla",$general_config)){
         $template_file_name = $in_folder_name . DIRECTORY_SEPARATOR . $general_config["plantilla"];
         if (!file_exists($template_file_name) || !is_readable($template_file_name)  && !is_dir($template_file_name) ){
-            exit('"plantilla" ' . $template_file_name . " NOT READABLE OR NOT EXISTS\n");
+            exit('"plantilla" ' . $template_file_name . " NO EXISTE O NO SE PUEDE LEER ESTE ARCHIVO\n");
         }
     }
     
@@ -154,7 +154,7 @@ if ($general_config != NULL && $mapping_variables != NULL){
     
 }
 else{
-    exit("CONFIG FILE IS INCOMPLETE AND CANNOT BE PROCESSED\n");
+    exit("EL ARCHIVO DE CONFIGURACION " . $argv[1] . "ESTA INCOMPLETO Y NO PUEDE SER PROCESADO\n");
 }
 
 if (isset($mapped_data)){
@@ -205,7 +205,11 @@ if (isset($mapped_data)){
             $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path);
             var_dump("PDF PATH: " . $pdf_path);
             if ( file_exists( $pdf_path ) ) {
-                $result = $fachada->insertarDocumento( $proceso, $pdfName, "");
+                $result = $fachada->insertarDocumento( $proceso, $pdfName, "CREADO");
+                var_dump( "ID documento: ".$result);
+            }
+            else{
+                $result = $fachada->insertarDocumento( $proceso, $pdfName, "ERROR: NO CREADO");
                 var_dump( "ID documento: ".$result);
             }
             var_dump(file_exists( $pdf_path ) );
@@ -217,6 +221,9 @@ if (isset($mapped_data)){
             var_dump($exc);
         }
     }
+    
+    array_map('unlink', glob($temp_folder . DIRECTORY_SEPARATOR . "*"));
+    rmdir($temp_folder);
 }
 
 ?>
