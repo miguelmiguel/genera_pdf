@@ -5,7 +5,7 @@ mb_http_input('UTF-8');
 mb_language('uni');
 mb_regex_encoding('UTF-8');
 
-define("ROOT", __DIR__ ."/");
+define("ROOT", __DIR__ . DIRECTORY_SEPARATOR );
 
 $conf = array();
 

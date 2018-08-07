@@ -1,6 +1,6 @@
 <?php
 
-function createPDF($pdf_folder, $template_file_name, $temp_full_path, $mapped_data){
+function createPDF($pdf_folder, $template_file_name, $temp_full_path, $mapped_data, $soffice_path = NULL){
     
     //Copy the Template file to the Result Directory
     copy($template_file_name, $temp_full_path);
@@ -29,8 +29,13 @@ function createPDF($pdf_folder, $template_file_name, $temp_full_path, $mapped_da
         $zip_val->addFromString($key_file_name, $message);
         $zip_val->close();
     }
-    var_dump('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
     
-    shell_exec('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+    if ($soffice_path) {
+        var_dump('"' . $soffice_path . '" --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+        shell_exec('"' . $soffice_path . '" --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+    } else {
+        var_dump('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+        shell_exec('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+    }
     
 }

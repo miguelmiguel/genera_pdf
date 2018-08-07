@@ -49,6 +49,34 @@ var_dump($pdf_filename_format);
 
 
 if ($general_config != NULL && $mapping_variables != NULL){
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        var_dump('This is a server using Windows!');
+        if (array_key_exists("soffice_path",$general_config)){
+            $soffice_path = $general_config["soffice_path"];
+            if (file_exists($soffice_path) && is_readable($soffice_path) && !is_dir($soffice_path) && is_executable($soffice_path) ){
+                var_dump('"soffice_path" ' . $soffice_path . ' EXISTS');
+            }
+            else{
+                var_dump('"soffice_path" ' . $soffice_path . ' NOT EXISTS OR IS NOT EXECUTABLE');
+                exit();
+            }
+        }
+        else{
+            var_dump('"soffice_path" IS NOT SET');
+            exit();
+        }
+    }
+    else{
+        var_dump('This is a server not using Windows!');
+        $soffice_path = NULL;
+    }
+    
+    if (array_key_exists("cliente_archivo",$general_config)){
+        $cliente_archivo = $general_config["cliente_archivo"];
+    }
+    else{
+        $cliente_archivo = NULL;
+    }
 
     if (array_key_exists("ruta_in",$general_config)){
         $in_folder_name = $general_config["ruta_in"];
@@ -92,8 +120,8 @@ if ($general_config != NULL && $mapping_variables != NULL){
     
     
     if (array_key_exists("archivo_bd",$general_config)){
-        $input_file_name = $general_config["archivo_bd"];
-        if (file_exists($input_file_name) && is_readable($input_file_name)){
+        $input_file_name =  $in_folder_name . DIRECTORY_SEPARATOR . $general_config["archivo_bd"];
+        if (file_exists($input_file_name) && is_readable($input_file_name) && !is_dir($input_file_name) ){
             $input_data = readSheetFile(realpath($input_file_name));
             #var_dump($input_data);
             $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format);
@@ -105,8 +133,8 @@ if ($general_config != NULL && $mapping_variables != NULL){
     }
 
     if (array_key_exists("plantilla",$general_config)){
-        $template_file_name = $general_config["plantilla"];
-        if (!file_exists($template_file_name) || !is_readable($template_file_name)){
+        $template_file_name = $in_folder_name . DIRECTORY_SEPARATOR . $general_config["plantilla"];
+        if (!file_exists($template_file_name) || !is_readable($template_file_name)  && !is_dir($template_file_name) ){
             exit('"plantilla" ' . $template_file_name . " NOT READABLE OR NOT EXISTS\n");
         }
     }
@@ -126,13 +154,13 @@ if ($general_config != NULL && $mapping_variables != NULL){
     
 }
 else{
-
+    exit("CONFIG FILE IS INCOMPLETE AND CANNOT BE PROCESSED\n");
 }
 
 if (isset($mapped_data)){
     
     $pdf_folder = $out_folder_name;
-    $temp_folder = $out_folder_name . '/' . "temp_" . generateRandomString();
+    $temp_folder = $out_folder_name . DIRECTORY_SEPARATOR . "temp_" . generateRandomString();
     
     $fachada = FachadaBD::getInstance();
      
@@ -146,11 +174,10 @@ if (isset($mapped_data)){
         mkdir($pdf_folder);
     }  
     
-    $proceso = $fachada->insertarProceso($input_file_name, $template_file_name, "");
+    $proceso = $fachada->insertarProceso($input_file_name, $template_file_name, $cliente_archivo);
     var_dump( "ID PROCESO: ".$proceso);
     
     $first = TRUE;
-    $i = 0;
     foreach ($mapped_data as $key => $mapped_row){
         
         if($first){
@@ -172,8 +199,8 @@ if (isset($mapped_data)){
             unset($mapped_row['$filename']);
         }
         
-        $full_path = realpath($temp_folder) . '/' . $fileName;
-        $pdf_path = realpath($pdf_folder) . '/' . $pdfName;
+        $full_path = realpath($temp_folder) . DIRECTORY_SEPARATOR . $fileName;
+        $pdf_path = realpath($pdf_folder) . DIRECTORY_SEPARATOR . $pdfName;
         
         try
         {
@@ -192,7 +219,6 @@ if (isset($mapped_data)){
             $error_message =  "Error creating the Word Document";
             var_dump($exc);
         }
-//         $i++;
     }
 }
 

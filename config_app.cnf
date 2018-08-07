@@ -3,8 +3,8 @@
 ; cabecera SI/NO (indica debe saltar la primera fila)
 
 [CONF GENERAL]
-ruta_in = "."
-ruta_out= "demandas"
+ruta_in = "./../plantillas_pdf"
+ruta_out= "./../demandas"
 archivo_bd = modelo_demanda_externa_20.xlsx
 ;plantilla = remesa_dda_matriz_v2.docx
 plantilla = PruebaTemplate.docx
@@ -13,6 +13,10 @@ base_datos_app = "generar_pdf"
 user_db = "miguel"
 pass_db = ""
 server_db = "localhost"
+cliente_archivo = "MIGUEL"
+; En Windows, se requiere la ruta específica de Libreoffice
+; usualmente "C:\Program Files\LibreOffice\program\soffice.exe"
+soffice_path = "C:\Program Files\LibreOffice\program\soffice.exe"
 
 ;Formato para nombrar los pdf, basados en variables de mapeo y textos
 ;fijo_X es un campo que no cambiará
