@@ -186,10 +186,7 @@ if (isset($mapped_data)){
                 continue;
             }
         }
-        
-        if ($i > 3){
-            break;
-        }
+
         $fileName = "results_" . $key . ".docx";
         $pdfName = "results_" . $key . ".pdf";
     
