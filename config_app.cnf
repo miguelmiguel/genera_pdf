@@ -1,0 +1,53 @@
+; Archivo configuración proceso
+; estas líneas son de comentarios
+; cabecera SI/NO (indica debe saltar la primera fila)
+
+[CONF GENERAL]
+ruta_in = "."
+ruta_out= "demandas"
+archivo_bd = modelo_demanda_externa_20.xlsx
+;plantilla = remesa_dda_matriz_v2.docx
+plantilla = PruebaTemplate.docx
+cabecera = SI
+base_datos_app = "generar_pdf"
+user_db = "miguel"
+pass_db = ""
+server_db = "localhost"
+
+;Formato para nombrar los pdf, basados en variables de mapeo y textos
+;fijo_X es un campo que no cambiará
+;variable_X es un campo que dependerá de los datos mapeados
+;Estarán en el orden en que se escriban en este archivo de configuración
+;las variables y constantes se unirán con '_' entre ellas
+
+[FORMATO_NOMBRE_PDF]
+fijo_1 = dda
+variable_1 = #indice
+variable_2 = #nom_ddo
+variable_3 = #ejecutivo
+fijo_2 = PROCESADO
+variable_4 = #prueba_inexistente
+variable_5 = #mnt_ddo
+
+
+; La letra indica la columna del archivo de base de datos
+; los mapeos se pueden hacer para 1 o varias columnas por variable 
+; Para una columna por variable, se define una variable, así: 
+;   #nombre_ejemplo = 'Columna'
+; Para varias columnas por variable, se definen varias variables con el mismo nombre, así:
+;   #nombre_ejemplo[] = 'Columna 1'
+;   #nombre_ejemplo[] = 'Columna 2'
+;   #nombre_ejemplo[] = 'Columna 3'
+; En este último caso, las columnas se van a unir con espacios entre cada una y en el orden
+; en el que se definan en el archivo de configuración
+
+[MAPEOS]
+#nom_ddo[] = G
+#nom_ddo[] = H
+#nom_ddo[] = I
+#rut_ddo = F
+#dir_ddo = J
+#com_ddo = K
+#ejecutivo = N
+#indice = A
+#mnt_ddo = M
