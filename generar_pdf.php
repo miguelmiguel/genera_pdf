@@ -205,7 +205,7 @@ if (isset($mapped_data)){
         try
         {
             
-            $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row);
+            $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path);
             var_dump("PDF PATH: " . $pdf_path);
             if ( file_exists( $pdf_path ) ) {
                 $result = $fachada->insertarDocumento( $proceso, $pdfName, "");
