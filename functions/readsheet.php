@@ -27,6 +27,7 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
                 foreach($value as $mapped_key){
                     
                     $mapping = $sheet_row[$mapped_key];
+                    $mapping = mb_convert_encoding($str, "UTF-8");
                     $data_to_join[] = $mapping;
                 }
                 $mapped_element = preg_replace('/\s\s+/', ' ', trim(implode(' ',$data_to_join)));
