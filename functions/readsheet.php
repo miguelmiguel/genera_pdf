@@ -33,6 +33,8 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
             }
             else{
                 $mapped_element = $sheet_row[$value];
+    $difference = $end_time - $start_time;
+    var_dump("Total: " . $difference);
             }
             $mapped_row[$key] = preg_replace('/\s\s+/', ' ', trim($mapped_element));
         }
@@ -54,7 +56,7 @@ function mapSheetData($mapping_variables, $sheet_data, $filename_format){
         }
         $mapped_filename = preg_replace('/\s\s+/', '_', trim(implode('_',$mapped_filename)));
         
-        $mapped_filename = preg_replace("/[^A-Za-z0-9ñÑ_-]/", '', $mapped_filename);
+        $mapped_filename = preg_replace("/[^A-Za-z0-9ñÑ_-áÁéÉíÍóÓúÚüÜ]/", '', $mapped_filename);
         $mapped_row['$filename'] = $mapped_filename;
         
         $mapped_data[]=$mapped_row;
