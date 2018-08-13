@@ -22,7 +22,7 @@ function createPDF($pdf_folder, $template_file_name, $temp_full_path, $mapped_da
             
             // this data Replace the placeholders with actual values
             foreach ($mapped_data as $key => $value) {
-                #var_dump($key . ' ' . $value);
+                var_dump($key . ' ' . $value);
                 $message = str_replace($key, $value,  $message);
             }        
             
