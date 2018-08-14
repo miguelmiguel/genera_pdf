@@ -109,3 +109,10 @@ Manual de Instalación:
                 #prueba = A
             ii. Plantilla.docx
                 Aquí va lo que se va a cambiar: ${#prueba}. Esto es una prueba.
+                
+10. Ejecución del proceso: 
+    a) Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
+        1. php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf 
+    b) También se puede ejecutar fuera del directorio del proyecto, indicando la ruta completa del ejecutable ‘generar_pdf.php’. Ejemplo:
+        1. php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
+    c) En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas ‘ruta_in’ y ‘ruta_out’ del archivo de configuración, no sean rutas relativas, sino absolutas.
