@@ -29,6 +29,10 @@ class OutputProceso {
     function getArchivoEntrada(){
         return $this->archivo_entrada;
     }
+    
+    function getRutaSalida(){
+        return $this->ruta_salida;
+    }
 
     function getPlantilla(){
         return $this->plantilla;

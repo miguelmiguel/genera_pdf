@@ -45,7 +45,7 @@ class FachadaBD {
         return $db;
     }
 
-    function insertarDocumento($proceso, $archivo_salida, $estado_archivo) {
+    function insertarDocumento( $proceso, $archivo_salida, $estado_archivo ) {
 
         $db = $this->conectar();
         $id = 0;
@@ -66,16 +66,16 @@ class FachadaBD {
         return $id;
     }
     
-    function insertarProceso( $archivo_entrada, $plantilla, $cliente ) {
+    function insertarProceso( $archivo_entrada, $ruta_salida, $plantilla, $cliente ) {
 
         $db = $this->conectar();
         $id = 0;
         
         if ($stmt = $db->prepare(
-                "INSERT INTO ot_proceso (fecha_proceso, archivo_entrada, plantilla, cliente) 
-                VALUES (CURRENT_TIMESTAMP(),?,?,?)") )
+                "INSERT INTO ot_proceso (fecha_proceso, archivo_entrada, ruta_salida, plantilla, cliente) 
+                VALUES (CURRENT_TIMESTAMP(),?,?,?,?)") )
         {
-            $stmt->bind_param('sss', $archivo_entrada, $plantilla, $cliente);
+            $stmt->bind_param('ssss', $archivo_entrada, $ruta_salida, $plantilla, $cliente);
             $stmt->execute();
             #echo "error:".$db->error;
 
