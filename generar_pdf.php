@@ -176,12 +176,13 @@ if (isset($mapped_data)){
         mkdir($pdf_folder);
     }  
     
-    $proceso = $fachada->insertarProceso($input_file_name, $template_file_name, $cliente_archivo);
+    $proceso = $fachada->insertarProceso($input_file_name, $out_folder_name, $template_file_name, $cliente_archivo);
     var_dump( "ID PROCESO: ".$proceso);
     
     $first = TRUE;
     $created_pdf = 0;
     $not_created_pdf = 0;
+    $phpWord = TRUE;
     foreach ($mapped_data as $key => $mapped_row){
         
         if($first){
@@ -203,7 +204,7 @@ if (isset($mapped_data)){
         $full_path = realpath($temp_folder) . DIRECTORY_SEPARATOR . $fileName;
         $pdf_path = realpath($pdf_folder) . DIRECTORY_SEPARATOR . $pdfName;
         
-        $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path);
+        $pdf_created = createPDF(realpath($pdf_folder), realpath($template_file_name), $full_path, $mapped_row, $soffice_path, $phpWord);
         var_dump("PDF PATH: " . $pdf_path);
         if ( file_exists( $pdf_path ) ) {
             $result = $fachada->insertarDocumento( $proceso, $pdfName, "CREADO");
