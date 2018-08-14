@@ -32,7 +32,7 @@ Manual de Instalación:
     b) En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
         i. composer require phpoffice/phpspreadsheet
 
-4. Instalación de PHP Word: se puede encontrar información de esta librería en las siguientes direcciones: https://github.com/PHPOffice/PHPWord y http://phpword.readthedocs.io/en/latest/
+4. Instalación de PHP Word: se puede encontrar información de esta librería en las siguientes direcciones: https://github.com/PHPOffice/PHPWord y https://phpword.readthedocs.io/en/latest/
     a) En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
         i. php composer.phar require phpoffice/phpword
     b) En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
