@@ -206,10 +206,10 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         * En la columna B está el nombre.
         * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
        
-    4. **[HOJA_EXCEL]**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
+    4. **[HOJAS_EXCEL]**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
         1. La etiqueta `hoja` se utiliza en esta sección para indicar cual se utilizará:
         ```
-            [HOJA_EXCEL]
+            [HOJAS_EXCEL]
             hoja = "Hoja1"
         ```
         
@@ -217,7 +217,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         
         3. Para una (1) sola hoja, se define la variable, así: 
         ```
-            [HOJA_EXCEL]
+            [HOJAS_EXCEL]
             hoja = "Hoja1"
         ```
         
@@ -228,7 +228,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             hoja[] = 'Hoja3'
         ```
         
-        5. Si no se define la sección `[HOJA_EXCEL]` o no se incluye la variable `hoja` en esta sección, el proceso leerá todas las hojas del archivo de excel.
+        5. Si no se define la sección `[HOJAS_EXCEL]` o no se incluye la variable `hoja` en esta sección, el proceso leerá todas las hojas del archivo de excel.
         
 ### 9. **Plantillas en Word**:
 
