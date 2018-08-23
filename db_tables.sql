@@ -2,15 +2,17 @@ CREATE TABLE `ot_proceso` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha_proceso` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `archivo_entrada` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
-  `ruta_salida` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
+  `ruta_salida` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
   `plantilla` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `cliente` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado_proceso` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fecha_proceso` (`fecha_proceso`),
   KEY `archivo_entrada` (`archivo_entrada`),
-  KEY `ruta_salida` (`ruta_salida`),
   KEY `plantilla` (`plantilla`),
-  KEY `cliente` (`cliente`)
+  KEY `cliente` (`cliente`),
+  KEY `ruta_salida` (`ruta_salida`),
+  KEY `estado_proceso` (`estado_proceso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Recopila los procesos ejecutados para la generacion de pdf';
 
 CREATE TABLE `ot_documento` (

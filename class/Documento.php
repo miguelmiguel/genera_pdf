@@ -28,7 +28,7 @@ class OutputDocumento {
     }
     
     function getArchivoSalida(){
-        return $this->nombre_archivo_salida;
+        return $this->archivo_salida;
     }
 
     function getEstadoArchivo(){

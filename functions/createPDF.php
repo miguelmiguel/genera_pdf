@@ -17,8 +17,8 @@ function createDocxWithZipArchive($temp_full_path, $mapped_data){
         
         // this data Replace the placeholders with actual values
         foreach ($mapped_data as $key => $value) {
-            //var_dump($key . ' ' . $value);
-            $message = str_replace($key, $value,  $message);
+            //var_dump('${' . $key . '}' . ' ' . $value);
+            $message = str_replace('${' . $key . '}', $value,  $message);
             //$message = preg_replace('/\b' . $key . '\b/', $value,  $message);
         }        
         

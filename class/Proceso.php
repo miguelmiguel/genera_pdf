@@ -5,17 +5,21 @@ class OutputProceso {
     var $id;
     var $fecha_proceso;
     var $archivo_entrada;
+    var $ruta_salida;
     var $plantilla;
     var $cliente;
+    var $estado_proceso;
     
-    function __construct($id=NULL, $fecha_proceso=NULL, $archivo_entrada=NULL, $plantilla=NULL, $cliente=NULL)
+    function __construct($id=NULL, $fecha_proceso=NULL, $archivo_entrada=NULL, $ruta_salida=NULL, $plantilla=NULL, $cliente=NULL, $estado_proceso=NULL)
     {
 
         $this->id = $id;
-        $this->proceso = $proceso;
-        $this->archivo_salida = $archivo_salida;
-        $this->estado_archivo = $estado_archivo;
-        $this->fecha_hora_generado = $fecha_hora_generado;
+        $this->fecha_proceso = $fecha_proceso;
+        $this->archivo_entrada = $archivo_entrada;
+        $this->ruta_salida = $ruta_salida;
+        $this->plantilla = $plantilla;
+        $this->cliente = $cliente;
+        $this->estado_proceso = $estado_proceso;
     }
 
     function getId(){
@@ -40,6 +44,10 @@ class OutputProceso {
 
     function getCliente(){
         return $this->cliente;
+    }
+
+    function getEstadoProceso(){
+        return $this->estado_proceso;
     }
     
 }

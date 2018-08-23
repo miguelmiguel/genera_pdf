@@ -66,16 +66,16 @@ class FachadaBD {
         return $id;
     }
     
-    function insertarProceso( $archivo_entrada, $ruta_salida, $plantilla, $cliente ) {
+    function insertarProceso( $archivo_entrada, $ruta_salida, $plantilla, $cliente, $estado_proceso) {
 
         $db = $this->conectar();
         $id = 0;
         
         if ($stmt = $db->prepare(
-                "INSERT INTO ot_proceso (fecha_proceso, archivo_entrada, ruta_salida, plantilla, cliente) 
-                VALUES (CURRENT_TIMESTAMP(),?,?,?,?)") )
+                "INSERT INTO ot_proceso (fecha_proceso, archivo_entrada, ruta_salida, plantilla, cliente, estado_proceso) 
+                VALUES (CURRENT_TIMESTAMP(),?,?,?,?,?)") )
         {
-            $stmt->bind_param('ssss', $archivo_entrada, $ruta_salida, $plantilla, $cliente);
+            $stmt->bind_param('sssss', $archivo_entrada, $ruta_salida, $plantilla, $cliente, $estado_proceso);
             $stmt->execute();
             #echo "error:".$db->error;
 
@@ -85,7 +85,43 @@ class FachadaBD {
         
         return $id;
     }
+    
+    function consultarProceso($id){ 
+        $db = $this->conectar();
 
+        if ($stmt = $db->prepare(
+            "SELECT id, fecha_proceso, archivo_entrada, ruta_salida, plantilla, cliente, estado_proceso
+            FROM ot_proceso WHERE id = ?") )
+        {
+            // Bind your variable to replace the ?
+            $stmt->bind_param('i', $clave);
+            $clave = $id;
+
+            $stmt->bind_result($id, $fecha_proceso, $archivo_entrada, $ruta_salida, $plantilla, $cliente, $estado_proceso);
+            $stmt->execute();
+            $stmt -> fetch();
+            $result = new OutputProceso($id, $fecha_proceso, $archivo_entrada, $ruta_salida, $plantilla, $cliente, $estado_proceso);
+
+            $stmt->close();
+        }
+
+        return $result;
+    }
+    
+    function modificarEstadoProceso($proceso, $estado) {
+
+        $db = $this->conectar();
+
+        if ($stmt = $db->prepare("UPDATE ot_proceso SET estado_proceso = ? WHERE id=?") ){
+            // Bind your variable to replace the ?
+            $stmt->bind_param('si', $estado, $proceso->id);
+            $stmt->execute();
+
+            $result = $stmt->affected_rows;
+            $stmt->close();
+        }
+        return $result;
+    }
 }
 
 ?>

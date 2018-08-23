@@ -1,0 +1,1 @@
+ALTER TABLE `ot_proceso` ADD `estado_proceso` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NULL DEFAULT NULL AFTER `cliente`, ADD INDEX (`estado_proceso`);

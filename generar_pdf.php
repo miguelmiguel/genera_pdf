@@ -187,21 +187,15 @@ if (isset($mapped_data)){
         mkdir($pdf_folder);
     }  
     
-    $proceso = $fachada->insertarProceso($input_file_name, $out_folder_name, $template_file_name, $cliente_archivo);
+    $proceso = $fachada->insertarProceso(realpath($input_file_name), realpath($out_folder_name), realpath($template_file_name), $cliente_archivo, 'EN PROCESO');
     var_dump( "ID PROCESO: ".$proceso);
     
-    $first = TRUE;
+    $proceso_object = $fachada->consultarProceso($proceso);
+    
     $created_pdf = 0;
     $not_created_pdf = 0;
     $phpWord = TRUE;
     foreach ($mapped_data as $key => $mapped_row){
-        
-//         if($first){
-//             $first = FALSE;
-//             if ($ignore_first_line){
-//                 continue;
-//             }
-//         }
 
         $fileName = "results_" . $key . ".docx";
         $pdfName = "results_" . $key . ".pdf";
@@ -231,6 +225,8 @@ if (isset($mapped_data)){
         var_dump(file_exists( $pdf_path ) );
         
     }
+    
+    $result = $fachada->modificarEstadoProceso($proceso_object, 'TERMINADO');
     
     array_map('unlink', glob($temp_folder . DIRECTORY_SEPARATOR . "*"));
     rmdir($temp_folder);
