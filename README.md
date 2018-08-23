@@ -29,7 +29,7 @@ Composer es un manejador de dependencias, para librerías de PHP.
 2. **En Windows**: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
     1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
     2. Ejecutar el archivo descargado.
-    3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
+    3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *`composer`* desde el mismo. 
 
 ### 3. **Instalación de PHP Spreadsheet**: 
 
@@ -119,7 +119,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
 ### 8. **Archivo de configuración**:
 1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
 2. En el archivo de configuración, existen tres (3) secciones, y cada una tiene diferentes objetivos:
-    1. **[CONF GENERAL]**: guarda la información general, necesaria para la ejecución del proyecto. Sus etiquetas son:
+    1. **`[CONF GENERAL]`**: guarda la información general, necesaria para la ejecución del proyecto. Sus etiquetas son:
         1. `ruta_in`: Ubicación del directorio donde se encontrarán todos los archivos de entrada del proceso a ejecutar (plantilla en word, archivo de datos en excel, etc.).
         2. `ruta_out`: Ubicación del directorio donde se encontrarán los PDF que serán generados al ejecutar el proceso.
         3. `archivo_bd`: Nombre del archivo de datos en excel.
@@ -131,7 +131,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         9. `server_db`: Servidor donde se aloja la base de datos (Usualmente, `localhost`).
         10. `cliente_archivo`: Cliente que se registrará en el proceso.
         11. `soffice_path`: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
-    2. **[FORMATO_NOMBRE_PDF]**: Esta sección tiene variables que ayudarán a configurar el nombre de los archivos de salida en PDF. Para esto se definen dos tipos de variables:
+    2. **`[FORMATO_NOMBRE_PDF]`**: Esta sección tiene variables que ayudarán a configurar el nombre de los archivos de salida en PDF. Para esto se definen dos tipos de variables:
         1. `fijo_X` (`X` es un número o letra para diferenciarlas): es un campo que no cambiará, es decir, se mantendrá el valor que se indica en el archivo de configuración. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
@@ -162,7 +162,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             **PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf**
         
                 
-    3. **[MAPEOS]**: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
+    3. **`[MAPEOS]`**: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
         1. La letra indica la columna del archivo de base de datos. Ejemplo:
         ```
             [MAPEOS]
@@ -206,7 +206,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         * En la columna B está el nombre.
         * La etiqueta `nombre` en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
        
-    4. **[HOJAS_EXCEL]**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
+    4. **`[HOJAS_EXCEL]`**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
         1. La etiqueta `hoja` se utiliza en esta sección para indicar cual se utilizará:
         ```
             [HOJAS_EXCEL]
@@ -235,7 +235,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
 Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
 
 1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por **'${‘** y **‘}’**, sin espacios entre ellos. Ejemplo:
-    1. Si en el archivo de configuración, la etiqueta de mapeo es **#prueba**, en la plantilla debe colocarse **${#prueba}**.
+    1. Si en el archivo de configuración, la etiqueta de mapeo es `#prueba`, en la plantilla debe colocarse **${#prueba}**.
         1. Config.cnf 
         ```
             [MAPEOS]
