@@ -11,11 +11,12 @@
 
 ## Manual de Instalación:
 
-1. **Proyecto Genera PDF**:
+### 1. **Proyecto Genera PDF**:
     1. Por ahora, se encuentra en el siguiente repositorio:
         1. *https://github.com/miguelmiguel/genera_pdf*
 
-2. **Instalación de Composer**, que es un manejador de dependencias, para librerías de PHP.
+### 2. **Instalación de Composer**: 
+       Composer es un manejador de dependencias, para librerías de PHP, se puede encontrar información en *https://getcomposer.org/*.
     1. En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
     ```sh
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -28,7 +29,8 @@
         2. Ejecutar el archivo descargado.
         3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
 
-3. **Instalación de PHP Spreadsheet**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
+### 3. **Instalación de PHP Spreadsheet**: 
+       Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
     1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
     ```sh
         php composer.phar require phpoffice/phpspreadsheet
@@ -38,7 +40,8 @@
         composer require phpoffice/phpspreadsheet
     ```
 
-4. **Instalación de PHP Word**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
+### 4. **Instalación de PHP Word**: 
+       Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
     1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
 
     ```sh
@@ -50,7 +53,7 @@
         composer require phpoffice/phpword
     ```
 
-5. **PHP ZipArchive**:
+### 5. **PHP ZipArchive**:
     1. **En Linux**: Desde el terminal, ejecutar el siguiente comando:
         1. **Ubuntu/Debian**:
         ```sh
@@ -84,7 +87,7 @@
         
     2. **En Windows**: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
-6. **Instalación de LibreOffice**:
+### 6. **Instalación de LibreOffice**:
     1. **En Linux**: Desde el terminal, ejecutar el siguiente comando: 
         1. Debian/Ubuntu: 
         ```sh
@@ -103,12 +106,12 @@
     2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
         1. *https://es.libreoffice.org/descarga/libreoffice* 
 
-7. **MySQL**:
+### 7. **MySQL**:
     1. Al obtener el proyecto desde el repositorio, en el mismo directorio donde se crea, se encontrará un script *‘db_tables.sql’* que tiene los comandos para crear las tablas de la base de datos del proyecto.
     2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **[CONF GENERAL]**, con la etiqueta *‘base_datos_app’*).
     3. Luego, se debe ejecutar el script *‘db_tables.sql’* en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
 
-8. **Archivo de configuración**:
+### 8. **Archivo de configuración**:
     1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
     2. En el archivo de configuración, existen tres (3) secciones, y cada una tiene diferentes objetivos:
         1. **[CONF GENERAL]**: guarda la información general, necesaria para la ejecución del proyecto. Sus etiquetas son:
@@ -198,7 +201,7 @@
             * En la columna B está el nombre.
             * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
 
-9. **Plantillas en Word**: Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
+### 9. **Plantillas en Word**: Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
     1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por **'${‘** y **‘}’**, sin espacios entre ellos. Ejemplo:
         1. Si en el archivo de configuración, la etiqueta de mapeo es **#prueba**, en la plantilla debe colocarse **${#prueba}**.
             1. Config.cnf 
@@ -211,7 +214,7 @@
             
                Aquí va lo que se va a cambiar: **${#prueba}**. Esto es una prueba.
                 
-10. **Ejecución del proceso**: 
+## **Ejecución del proceso**: 
     1. Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
     ```sh
         php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf
