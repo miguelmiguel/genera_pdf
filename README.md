@@ -56,14 +56,10 @@
         ```sh
             sudo yum install php-zip
         ```
-        
-           Para php7.0
            
         ```sh
             sudo apt-get install php7.0-zip
         ```
-        
-           Para php5.6
            
         ```sh
             sudo apt-get install php5.6-zip
@@ -75,14 +71,10 @@
         ```sh
             sudo yum install php-zip
         ```
-        
-           Para php7.0
            
         ```sh
             sudo yum install php7.0-zip
         ```
-        
-           Para php5.6
            
         ```sh
             sudo yum install php5.6-zip
