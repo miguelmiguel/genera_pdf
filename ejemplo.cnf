@@ -6,8 +6,8 @@
 ruta_in = "./../plantillas_pdf"
 ruta_out= "./../demandas"
 archivo_bd = modelo_demanda_externa_05.xlsx
-plantilla = remesa_dda_matriz_v4.docx
-;plantilla = PruebaTemplate.docx
+;plantilla = remesa_dda_matriz_v4.docx
+plantilla = remesas_usado_v2.docx
 cabecera = SI
 base_datos_app = "generar_pdf"
 user_db = "miguel"
@@ -23,6 +23,11 @@ soffice_path = "C:\Program Files\LibreOffice\program\soffice.exe"
 ;variable_X es un campo que dependerá de los datos mapeados
 ;Estarán en el orden en que se escriban en este archivo de configuración
 ;las variables y constantes se unirán con '_' entre ellas
+
+[HOJAS_EXCEL]
+;hoja[] = "Sheet1"
+;hoja[] = "Sheet2"
+hoja = "Sheet1"
 
 [FORMATO_NOMBRE_PDF]
 fijo_1 = dda

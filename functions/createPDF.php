@@ -55,7 +55,7 @@ function createPDF($pdf_folder, $template_file_name, $temp_full_path, $mapped_da
             #var_dump('"' . $soffice_path . '" --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
             shell_exec('"' . $soffice_path . '" --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
         } else {
-            #var_dump('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
+            var_dump('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
             shell_exec('libreoffice --headless --convert-to pdf '.$temp_full_path.' --outdir '.$pdf_folder);
         }
     }

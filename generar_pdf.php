@@ -38,11 +38,24 @@ if (!empty($config)) {
     $mapping_variables = $config['MAPEOS'];
     $general_config = $config['CONF GENERAL'];
     $pdf_filename_format = $config['FORMATO_NOMBRE_PDF'];
+    if (array_key_exists("HOJAS_EXCEL",$config) && !empty($config['HOJAS_EXCEL'])){
+        $sheets_data = $config['HOJAS_EXCEL'];
+        if (array_key_exists("hoja",$sheets_data)){
+            $sheetnames = $sheets_data["hoja"];
+        }
+        else{
+            $sheetnames = NULL;
+        }
+    }
+    else{
+        $sheetnames = NULL;
+    }
 }
 else{
     $mapping_variables = NULL;
     $general_config = NULL;
     $pfd_filename_format = array('fijo_1'=>'result','index'=>'');
+    $sheetnames = NULL;
 }
 
 // var_dump($mapping_variables);
@@ -119,14 +132,20 @@ if ($general_config != NULL && $mapping_variables != NULL){
         $out_folder_name = ROOT . "pdf_results";
     }
     
-    
+    $ignore_first_line = TRUE;
+    if (array_key_exists("cabecera",$general_config)){
+        $header_on_file = $general_config["cabecera"];
+        if ( $header_on_file == 'NO'){
+            $ignore_first_line = FALSE;
+        }
+    }
     
     if (array_key_exists("archivo_bd",$general_config)){
         $input_file_name =  $in_folder_name . DIRECTORY_SEPARATOR . $general_config["archivo_bd"];
         if (file_exists($input_file_name) && is_readable($input_file_name) && !is_dir($input_file_name) ){
-            $input_data = readSheetFile(realpath($input_file_name));
+            $input_data = readSheetFile(realpath($input_file_name), $sheetnames);
             #var_dump($input_data);
-            $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format);
+            $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format, $ignore_first_line);
             #var_dump($mapped_data);
         }
         else{
@@ -146,17 +165,9 @@ if ($general_config != NULL && $mapping_variables != NULL){
         var_dump($general_config["formato_nombres_variables"]);
     }
     
-    $ignore_first_line = TRUE;
-    if (array_key_exists("cabecera",$general_config)){
-        $header_on_file = $general_config["cabecera"];
-        if ( $header_on_file == 'NO'){
-            $ignore_first_line = FALSE;
-        }
-    }
-    
 }
 else{
-    exit("EL ARCHIVO DE CONFIGURACION " . $argv[1] . "ESTA INCOMPLETO Y NO PUEDE SER PROCESADO\n");
+    exit("EL ARCHIVO DE CONFIGURACION " . $argv[1] . " ESTA INCOMPLETO Y NO PUEDE SER PROCESADO\n");
 }
 
 if (isset($mapped_data)){
@@ -185,12 +196,12 @@ if (isset($mapped_data)){
     $phpWord = TRUE;
     foreach ($mapped_data as $key => $mapped_row){
         
-        if($first){
-            $first = FALSE;
-            if ($ignore_first_line){
-                continue;
-            }
-        }
+//         if($first){
+//             $first = FALSE;
+//             if ($ignore_first_line){
+//                 continue;
+//             }
+//         }
 
         $fileName = "results_" . $key . ".docx";
         $pdfName = "results_" . $key . ".pdf";

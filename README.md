@@ -146,8 +146,8 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             variable_2 = #nom_ddo
         ```
         
-            * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
-            * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
+        * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
+        * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
         3. Los valores de estos campos fijos y variables, se utilizarán para crear el nombre de los archivos, en el orden en que sean escritos en el archivo de configuración, y serán separados entre ellos por ‘_’. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
@@ -175,9 +175,9 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             .
         ```
         
-        2. Los mapeos se pueden hacer para 1 o varias columnas por variable.
+        2. Los mapeos se pueden hacer para una (1) o varias columnas por variable.
         
-        3. Para una columna por variable, se define una variable, así: 
+        3. Para una (1) columna por variable, se define una variable, así: 
         ```
             [MAPEOS]
             .
@@ -205,7 +205,31 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         * En la columna A está el apellido.
         * En la columna B está el nombre.
         * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
-
+       
+    4. **[HOJA_EXCEL]**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
+        1. La etiqueta `hoja` se utiliza en esta sección para indicar cual se utilizará:
+        ```
+            [HOJA_EXCEL]
+            hoja = "Hoja1"
+        ```
+        
+        2. Se pueden agregar una (1) o varias hojas.
+        
+        3. Para una (1) sola hoja, se define la variable, así: 
+        ```
+            [HOJA_EXCEL]
+            hoja = "Hoja1"
+        ```
+        
+        4. Para varias hojas, se definen varias variables para `hoja`, así:
+        ```
+            hoja[] = 'Hoja1'
+            hoja[] = 'Hoja2'
+            hoja[] = 'Hoja3'
+        ```
+        
+        5. Si no se define la sección `[HOJA_EXCEL]` o no se incluye la variable `hoja` en esta sección, el proceso leerá todas las hojas del archivo de excel.
+        
 ### 9. **Plantillas en Word**:
 
 Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
