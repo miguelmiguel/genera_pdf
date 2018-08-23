@@ -12,7 +12,7 @@
 Manual de Instalación:
 
 1. Proyecto Genera PDF:
- a) Por ahora, se encuentra en el siguiente repositorio:
+ a. Por ahora, se encuentra en el siguiente repositorio:
   1. https://github.com/miguelmiguel/genera_pdf 
 
 2. Instalación de Composer, que es un manejador de dependencias, para librerías de PHP.
