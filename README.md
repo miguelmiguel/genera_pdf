@@ -86,7 +86,7 @@
                 5. variable_c = #indice
                 
                    El nombre de archivo final sería:
-                   PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf
+                   **PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf**
                    
         3. [MAPEOS]: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
             1. La letra indica la columna del archivo de base de datos. Ejemplo:
@@ -107,14 +107,18 @@
     1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por ‘${‘ y ‘}’, sin espacios entre ellos. Ejemplo:
         1. Si en el archivo de configuración, la etiqueta de mapeo es #prueba, en la plantilla debe colocarse ${#prueba}.
             1. Config.cnf 
+            
                [MAPEOS]
+               
                #prueba = A
+               
             2. Plantilla.docx
+            
                Aquí va lo que se va a cambiar: ${#prueba}. Esto es una prueba.
                 
 10. Ejecución del proceso: 
     1. Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
-        1. php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf 
+        1. *php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf* 
     2. También se puede ejecutar fuera del directorio del proyecto, indicando la ruta completa del ejecutable ‘generar_pdf.php’. Ejemplo:
-        1. php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
+        1. *php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf*
     3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas ‘ruta_in’ y ‘ruta_out’ del archivo de configuración, no sean rutas relativas, sino absolutas.
