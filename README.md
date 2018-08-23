@@ -84,8 +84,10 @@
                 3. variable_b = #rut
                 4. fijo_2 = DOCUMENTO
                 5. variable_c = #indice
+                
                    El nombre de archivo final sería:
                    PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf
+                   
         3. [MAPEOS]: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
             1. La letra indica la columna del archivo de base de datos. Ejemplo:
                 1. #indice = A
