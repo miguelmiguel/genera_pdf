@@ -11,34 +11,43 @@
 
 ## Manual de Instalación:
 
-1. **Proyecto Genera PDF**:
-    1. Por ahora, se encuentra en el siguiente repositorio:
-        1. *https://github.com/miguelmiguel/genera_pdf*
+### 1. **Proyecto Genera PDF**:
+1. Por ahora, se encuentra en el siguiente repositorio:
+    1. *https://github.com/miguelmiguel/genera_pdf*
 
-2. **Instalación de Composer**, que es un manejador de dependencias, para librerías de PHP.
-    1. En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
+2. **Instalación de Composer**:
+
+    Composer es un manejador de dependencias, para librerías de PHP.
+    
+    1. **En Linux**: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
     ```sh
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
         php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
         php composer-setup.php
         php -r "unlink('composer-setup.php');"
     ```
-    2. En Windows: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
+    2. **En Windows**: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
         1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
         2. Ejecutar el archivo descargado.
         3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
 
-3. **Instalación de PHP Spreadsheet**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
-    1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
+3. **Instalación de PHP Spreadsheet**: 
+
+    Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
+    
+    1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
     ```sh
         php composer.phar require phpoffice/phpspreadsheet
     ```
-    2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
+    2. **En Windows**: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
     ```sh
         composer require phpoffice/phpspreadsheet
     ```
 
-4. **Instalación de PHP Word**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
+4. **Instalación de PHP Word**: 
+
+    Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
+    
     1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
 
     ```sh
@@ -86,21 +95,21 @@
 
 6. **Instalación de LibreOffice**:
     1. **En Linux**: Desde el terminal, ejecutar el siguiente comando: 
-        1. Debian/Ubuntu: 
+        1. **Debian/Ubuntu**: 
         ```sh
             sudo apt-get install libreoffice –no-install-recommends
         ```
         
         Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
-        2. CentOS/Fedora:  
+        2. **CentOS/Fedora**:  
         ```sh
             sudo yum install libreoffice –no-install-recommends
         ```
         
         Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
-    2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
+    2. **En Windows**: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
         1. *https://es.libreoffice.org/descarga/libreoffice* 
 
 7. **MySQL**:
