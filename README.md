@@ -146,8 +146,8 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             variable_2 = #nom_ddo
         ```
         
-        * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
-        * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
+            * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
+            * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
         3. Los valores de estos campos fijos y variables, se utilizarán para crear el nombre de los archivos, en el orden en que sean escritos en el archivo de configuración, y serán separados entre ellos por ‘_’. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
