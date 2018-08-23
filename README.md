@@ -118,7 +118,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
 
 ### 8. **Archivo de configuración**:
 1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
-2. En el archivo de configuración, existen tres (3) secciones, y cada una tiene diferentes objetivos:
+2. En el archivo de configuración, existen cuatro (4) secciones, y cada una tiene diferentes objetivos:
     1. **`[CONF GENERAL]`**: guarda la información general, necesaria para la ejecución del proyecto. Sus etiquetas son:
         1. `ruta_in`: Ubicación del directorio donde se encontrarán todos los archivos de entrada del proceso a ejecutar (plantilla en word, archivo de datos en excel, etc.).
         2. `ruta_out`: Ubicación del directorio donde se encontrarán los PDF que serán generados al ejecutar el proceso.
