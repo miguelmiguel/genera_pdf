@@ -52,7 +52,19 @@
 
 5. **PHP ZipArchive**:
     1. En Linux: Desde el terminal, ejecutar el siguiente comando:
-        1. Ubuntu/Debian: *sudo apt-get install php-zip*, *sudo apt-get install php7.0-zip* o *sudo apt-get install php5.6-zip*, dependiendo de la versión de PHP. 
+        1. Ubuntu/Debian:
+        ```sh
+            sudo apt-get install php-zip
+        ```
+        o
+        ```sh
+            sudo apt-get install php7.0-zip
+        ```
+        o
+        ```sh
+            sudo apt-get install php5.6-zip
+        ```
+        dependiendo de la versión de PHP. 
         2. Fedora/CentOS: *sudo yum install php-zip*, *sudo yum install php7.0-zip* o *sudo yum install php5.6-zip*, dependiendo de la versión de PHP. 
     2. En Windows: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
