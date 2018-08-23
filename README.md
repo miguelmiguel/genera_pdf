@@ -17,10 +17,12 @@
 
 2. **Instalación de Composer**, que es un manejador de dependencias, para librerías de PHP.
     1. En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
-        1. *php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"*
-        2. *php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"*
-        3. *php composer-setup.php*
-        4. *php -r "unlink('composer-setup.php');"*
+    ```sh
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        php composer-setup.php
+        php -r "unlink('composer-setup.php');"
+    ```
     2. En Windows: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
         1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
         2. Ejecutar el archivo descargado.
@@ -28,9 +30,13 @@
 
 3. **Instalación de PHP Spreadsheet**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
     1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
-        1. *php composer.phar require phpoffice/phpspreadsheet*
+    ```sh
+        php composer.phar require phpoffice/phpspreadsheet
+    ```
     2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
-        1. *composer require phpoffice/phpspreadsheet*
+    ```sh
+        composer require phpoffice/phpspreadsheet
+    ```
 
 4. **Instalación de PHP Word**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
     1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
