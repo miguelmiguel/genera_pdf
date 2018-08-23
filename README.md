@@ -39,62 +39,74 @@
     ```
 
 4. **Instalación de PHP Word**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
-    1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
+    1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
 
     ```sh
         php composer.phar require phpoffice/phpword
     ``` 
 
-    2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
+    2. **En Windows**: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
     ```sh
         composer require phpoffice/phpword
     ```
 
 5. **PHP ZipArchive**:
-    1. En Linux: Desde el terminal, ejecutar el siguiente comando:
-        1. Ubuntu/Debian:
+    1. **En Linux**: Desde el terminal, ejecutar el siguiente comando:
+        1. **Ubuntu/Debian**:
         ```sh
             sudo yum install php-zip
         ```
-        Para php7.0
+        
+           Para php7.0
+           
         ```sh
             sudo apt-get install php7.0-zip
         ```
-        Para php5.6
+        
+           Para php5.6
+           
         ```sh
             sudo apt-get install php5.6-zip
         ```
-        Esto, dependiendo de la versión de PHP. 
         
-        2. Fedora/CentOS: 
+           Esto, dependiendo de la versión de PHP. 
+        
+        2. **Fedora/CentOS**: 
         ```sh
             sudo yum install php-zip
         ```
-        Para php7.0
+        
+           Para php7.0
+           
         ```sh
             sudo yum install php7.0-zip
         ```
-        Para php5.6
+        
+           Para php5.6
+           
         ```sh
             sudo yum install php5.6-zip
         ```
-        Esto, dependiendo de la versión de PHP. 
         
-    2. En Windows: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
+           Esto, dependiendo de la versión de PHP. 
+        
+    2. **En Windows**: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
 6. **Instalación de LibreOffice**:
-    1. En Linux: Desde el terminal, ejecutar el siguiente comando: 
+    1. **En Linux**: Desde el terminal, ejecutar el siguiente comando: 
         1. Debian/Ubuntu: 
         ```sh
             sudo apt-get install libreoffice –no-install-recommends
         ```
-        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice).
+        
+           Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
         2. CentOS/Fedora:  
         ```sh
             sudo yum install libreoffice –no-install-recommends
         ```
-        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice).
+        
+           Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
     2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
         1. *https://es.libreoffice.org/descarga/libreoffice* 
