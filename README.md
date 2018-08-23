@@ -1,6 +1,6 @@
 # Proyecto Generar PDF
 
-Dependencias:
+## Dependencias:
 1. MySQL.
 2. PHP.
 3. LibreOffice.
@@ -12,8 +12,8 @@ Dependencias:
 Manual de Instalación:
 
 1. Proyecto Genera PDF:
-    a) Por ahora, se encuentra en el siguiente repositorio:
-        1. https://github.com/miguelmiguel/genera_pdf 
+ a) Por ahora, se encuentra en el siguiente repositorio:
+  1. https://github.com/miguelmiguel/genera_pdf 
 
 2. Instalación de Composer, que es un manejador de dependencias, para librerías de PHP.
     a) En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
