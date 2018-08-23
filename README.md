@@ -12,104 +12,104 @@
 ## Manual de Instalación:
 
 ### 1. **Proyecto Genera PDF**:
-    1. Por ahora, se encuentra en el siguiente repositorio:
-        1. *https://github.com/miguelmiguel/genera_pdf*
+        1. Por ahora, se encuentra en el siguiente repositorio:
+            1. *https://github.com/miguelmiguel/genera_pdf*
 
 ### 2. **Instalación de Composer**: 
-       Composer es un manejador de dependencias, para librerías de PHP, se puede encontrar información en *https://getcomposer.org/*.
-    1. En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
-    ```sh
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-        php composer-setup.php
-        php -r "unlink('composer-setup.php');"
-    ```
-    2. En Windows: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
-        1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
-        2. Ejecutar el archivo descargado.
-        3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
+        Composer es un manejador de dependencias, para librerías de PHP, se puede encontrar información en *https://getcomposer.org/*.
+        1. En Linux: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
+        ```sh
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+            php composer-setup.php
+            php -r "unlink('composer-setup.php');"
+        ```
+        2. En Windows: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
+            1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
+            2. Ejecutar el archivo descargado.
+            3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
 
 ### 3. **Instalación de PHP Spreadsheet**: 
-       Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
-    1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
-    ```sh
-        php composer.phar require phpoffice/phpspreadsheet
-    ```
-    2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
-    ```sh
-        composer require phpoffice/phpspreadsheet
+        Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PhpSpreadsheet* y *https://phpspreadsheet.readthedocs.io/en/develop/* 
+        1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
+        ```sh
+            php composer.phar require phpoffice/phpspreadsheet
+        ```
+        2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
+        ```sh
+            composer require phpoffice/phpspreadsheet
     ```
 
 ### 4. **Instalación de PHP Word**: 
-       Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
-    1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
+        Se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
+        1. **En Linux**: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
 
-    ```sh
-        php composer.phar require phpoffice/phpword
-    ``` 
+        ```sh
+            php composer.phar require phpoffice/phpword
+        ``` 
 
-    2. **En Windows**: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
-    ```sh
-        composer require phpoffice/phpword
-    ```
+        2. **En Windows**: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
+        ```sh
+            composer require phpoffice/phpword
+        ```
 
 ### 5. **PHP ZipArchive**:
-    1. **En Linux**: Desde el terminal, ejecutar el siguiente comando:
-        1. **Ubuntu/Debian**:
-        ```sh
-            sudo yum install php-zip
-        ```
-           
-        ```sh
-            sudo apt-get install php7.0-zip
-        ```
-           
-        ```sh
-            sudo apt-get install php5.6-zip
-        ```
-        
-        Esto, dependiendo de la versión de PHP. 
-        
-        2. **Fedora/CentOS**: 
-        ```sh
-            sudo yum install php-zip
-        ```
-           
-        ```sh
-            sudo yum install php7.0-zip
-        ```
-           
-        ```sh
-            sudo yum install php5.6-zip
-        ```
-        
-        Esto, dependiendo de la versión de PHP. 
-        
-    2. **En Windows**: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
+        1. **En Linux**: Desde el terminal, ejecutar el siguiente comando:
+            1. **Ubuntu/Debian**:
+            ```sh
+                sudo yum install php-zip
+            ```
+            
+            ```sh
+                sudo apt-get install php7.0-zip
+            ```
+            
+            ```sh
+                sudo apt-get install php5.6-zip
+            ```
+            
+            Esto, dependiendo de la versión de PHP. 
+            
+            2. **Fedora/CentOS**: 
+            ```sh
+                sudo yum install php-zip
+            ```
+            
+            ```sh
+                sudo yum install php7.0-zip
+            ```
+            
+            ```sh
+                sudo yum install php5.6-zip
+            ```
+            
+            Esto, dependiendo de la versión de PHP. 
+            
+        2. **En Windows**: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
 ### 6. **Instalación de LibreOffice**:
-    1. **En Linux**: Desde el terminal, ejecutar el siguiente comando: 
-        1. Debian/Ubuntu: 
-        ```sh
-            sudo apt-get install libreoffice –no-install-recommends
-        ```
-        
-        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
-        
-        2. CentOS/Fedora:  
-        ```sh
-            sudo yum install libreoffice –no-install-recommends
-        ```
-        
-        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
-        
-    2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
-        1. *https://es.libreoffice.org/descarga/libreoffice* 
+        1. **En Linux**: Desde el terminal, ejecutar el siguiente comando: 
+            1. Debian/Ubuntu: 
+            ```sh
+                sudo apt-get install libreoffice –no-install-recommends
+            ```
+            
+            Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
+            
+            2. CentOS/Fedora:  
+            ```sh
+                sudo yum install libreoffice –no-install-recommends
+            ```
+            
+            Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
+            
+        2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
+            1. *https://es.libreoffice.org/descarga/libreoffice* 
 
 ### 7. **MySQL**:
-    1. Al obtener el proyecto desde el repositorio, en el mismo directorio donde se crea, se encontrará un script *‘db_tables.sql’* que tiene los comandos para crear las tablas de la base de datos del proyecto.
-    2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **[CONF GENERAL]**, con la etiqueta *‘base_datos_app’*).
-    3. Luego, se debe ejecutar el script *‘db_tables.sql’* en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
+        1. Al obtener el proyecto desde el repositorio, en el mismo directorio donde se crea, se encontrará un script *‘db_tables.sql’* que tiene los comandos para crear las tablas de la base de datos del proyecto.
+        2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **[CONF GENERAL]**, con la etiqueta *‘base_datos_app’*).
+        3. Luego, se debe ejecutar el script *‘db_tables.sql’* en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
 
 ### 8. **Archivo de configuración**:
     1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
@@ -202,27 +202,27 @@
             * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
 
 ### 9. **Plantillas en Word**: Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
-    1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por **'${‘** y **‘}’**, sin espacios entre ellos. Ejemplo:
-        1. Si en el archivo de configuración, la etiqueta de mapeo es **#prueba**, en la plantilla debe colocarse **${#prueba}**.
-            1. Config.cnf 
-            ```
-               [MAPEOS]
-               #prueba = A
-            ```
-               
-            2. Plantilla.docx
-            
-               Aquí va lo que se va a cambiar: **${#prueba}**. Esto es una prueba.
+        1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por **'${‘** y **‘}’**, sin espacios entre ellos. Ejemplo:
+            1. Si en el archivo de configuración, la etiqueta de mapeo es **#prueba**, en la plantilla debe colocarse **${#prueba}**.
+                1. Config.cnf 
+                ```
+                [MAPEOS]
+                #prueba = A
+                ```
+                
+                2. Plantilla.docx
+                
+                Aquí va lo que se va a cambiar: **${#prueba}**. Esto es una prueba.
                 
 ## **Ejecución del proceso**: 
-    1. Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
-    ```sh
-        php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf
-    ```
-    
-    2. También se puede ejecutar fuera del directorio del proyecto, indicando la ruta completa del ejecutable ‘generar_pdf.php’. Ejemplo:
-    ```sh
-        php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
-    ```
-    
-    3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas **_‘ruta_in’_** y **_‘ruta_out’_** del archivo de configuración, **no sean rutas relativas**, sino **absolutas**.
+        1. Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
+        ```sh
+            php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf
+        ```
+        
+        2. También se puede ejecutar fuera del directorio del proyecto, indicando la ruta completa del ejecutable ‘generar_pdf.php’. Ejemplo:
+        ```sh
+            php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
+        ```
+        
+        3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas **_‘ruta_in’_** y **_‘ruta_out’_** del archivo de configuración, **no sean rutas relativas**, sino **absolutas**.
