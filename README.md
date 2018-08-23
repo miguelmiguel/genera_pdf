@@ -34,9 +34,13 @@
 
 4. **Instalación de PHP Word**: se puede encontrar información de esta librería en las siguientes direcciones: *https://github.com/PHPOffice/PHPWord* y *https://phpword.readthedocs.io/en/latest/*
     1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
-        1. *php composer.phar require phpoffice/phpword*
+```sh
+        php composer.phar require phpoffice/phpword
+```
     2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
-        1. *composer require phpoffice/phpword*
+```sh
+        composer require phpoffice/phpword
+```
 
 5. **PHP ZipArchive**:
     1. En Linux: Desde el terminal, ejecutar el siguiente comando:
