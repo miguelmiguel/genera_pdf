@@ -15,21 +15,21 @@
 1. Por ahora, se encuentra en el siguiente repositorio:
     1. *https://github.com/miguelmiguel/genera_pdf*
 
-2. **Instalación de Composer**:
+### 2. **Instalación de Composer**:
 
     Composer es un manejador de dependencias, para librerías de PHP.
     
-    1. **En Linux**: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
-    ```sh
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-        php composer-setup.php
-        php -r "unlink('composer-setup.php');"
-    ```
-    2. **En Windows**: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
-        1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
-        2. Ejecutar el archivo descargado.
-        3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
+1. **En Linux**: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
+```sh
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
+```
+2. **En Windows**: Descargar el instalador de Composer del sitio web *https://getcomposer.org/doc/00-intro.md* 
+    1. *https://getcomposer.org/Composer-Setup.exe* esta es la ruta directa al ejecutable.
+    2. Ejecutar el archivo descargado.
+    3. Cerrar el terminal de Windows, si está abierto, y abrirlo de nuevo para poder ejecutar el comando *‘composer’* desde el mismo. 
 
 3. **Instalación de PHP Spreadsheet**: 
 
