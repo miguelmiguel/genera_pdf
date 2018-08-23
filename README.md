@@ -54,31 +54,55 @@
     1. En Linux: Desde el terminal, ejecutar el siguiente comando:
         1. Ubuntu/Debian:
         ```sh
-            sudo apt-get install php-zip
+            sudo yum install php-zip
         ```
-        o
+        Para php7.0
         ```sh
             sudo apt-get install php7.0-zip
         ```
-        o
+        Para php5.6
         ```sh
             sudo apt-get install php5.6-zip
         ```
-        dependiendo de la versión de PHP. 
-        2. Fedora/CentOS: *sudo yum install php-zip*, *sudo yum install php7.0-zip* o *sudo yum install php5.6-zip*, dependiendo de la versión de PHP. 
+        Esto, dependiendo de la versión de PHP. 
+        
+        2. Fedora/CentOS: 
+        ```sh
+            sudo yum install php-zip
+        ```
+        Para php7.0
+        ```sh
+            sudo yum install php7.0-zip
+        ```
+        Para php5.6
+        ```sh
+            sudo yum install php5.6-zip
+        ```
+        Esto, dependiendo de la versión de PHP. 
+        
     2. En Windows: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
 6. **Instalación de LibreOffice**:
     1. En Linux: Desde el terminal, ejecutar el siguiente comando: 
-        1. Debian/Ubuntu: *sudo apt-get install libreoffice –no-install-recommends* (Ésto si se instala en un servidor y no se quiere utilizar la interfaz gráfica de LibreOffice).
-        2. CentOS/Fedora:  *sudo yum install libreoffice –no-install-recommends*
+        1. Debian/Ubuntu: 
+        ```sh
+            sudo apt-get install libreoffice –no-install-recommends
+        ```
+        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice).
+        
+        2. CentOS/Fedora:  
+        ```sh
+            sudo yum install libreoffice –no-install-recommends
+        ```
+        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice).
+        
     2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
         1. *https://es.libreoffice.org/descarga/libreoffice* 
 
 7. **MySQL**:
     1. Al obtener el proyecto desde el repositorio, en el mismo directorio donde se crea, se encontrará un script *‘db_tables.sql’* que tiene los comandos para crear las tablas de la base de datos del proyecto.
     2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **[CONF GENERAL]**, con la etiqueta *‘base_datos_app’*).
-    3. Luego, se debe ejecutar el script ‘db_tables.sql’ en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
+    3. Luego, se debe ejecutar el script *‘db_tables.sql’* en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
 
 8. **Archivo de configuración**:
     1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
