@@ -65,7 +65,7 @@
             sudo apt-get install php5.6-zip
         ```
         
-           Esto, dependiendo de la versión de PHP. 
+        Esto, dependiendo de la versión de PHP. 
         
         2. **Fedora/CentOS**: 
         ```sh
@@ -80,7 +80,7 @@
             sudo yum install php5.6-zip
         ```
         
-           Esto, dependiendo de la versión de PHP. 
+        Esto, dependiendo de la versión de PHP. 
         
     2. **En Windows**: Desde PHP 5.3, esta librería se encuentra presente en la instalación oficial de PHP para Windows.
 
@@ -91,14 +91,14 @@
             sudo apt-get install libreoffice –no-install-recommends
         ```
         
-           Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
+        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
         2. CentOS/Fedora:  
         ```sh
             sudo yum install libreoffice –no-install-recommends
         ```
         
-           Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
+        Ésto si se instala en un servidor y/o no se quiere utilizar la interfaz gráfica de LibreOffice.
         
     2. En Windows: Descargar el ejecutable instalador de LibreOffice de la siguiente dirección:
         1. *https://es.libreoffice.org/descarga/libreoffice* 
@@ -142,27 +142,56 @@
                    
         3. **[MAPEOS]**: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
             1. La letra indica la columna del archivo de base de datos. Ejemplo:
-                1. #indice = A
+            ```
+                [MAPEOS]
+                .
+                .
+                .
+                #indice = A
+                .
+                .
+                .
+            ```
+            
             2. Los mapeos se pueden hacer para 1 o varias columnas por variable.
+            
             3. Para una columna por variable, se define una variable, así: 
-                1. #nombre_ejemplo = 'Columna'
+            ```
+                [MAPEOS]
+                .
+                .
+                .
+                #nombre_ejemplo = 'Columna'
+                .
+                .
+                .
+            ```
+            
             4. Para varias columnas por variable, se definen varias variables con el mismo nombre, así:
-                1. #nombre_ejemplo[] = 'Columna 1'
-                2. #nombre_ejemplo[] = 'Columna 2'
-                3. #nombre_ejemplo[] = 'Columna 3'
+            ```
+                #nombre_ejemplo[] = 'Columna 1'
+                #nombre_ejemplo[] = 'Columna 2'
+                #nombre_ejemplo[] = 'Columna 3'
+            ```
+            
             5. En este último caso, las columnas se van a unir con espacios entre cada una y en el orden en el que se definan en el archivo de configuración. Ejemplo:
-                1. #nombre[] = A (En la columna A está el apellido).
-                2. #nombre[] = B (En la columna D está el nombre).
+            ```
+                #nombre[] = A 
+                #nombre[] = B 
+            ```
+            
+            * En la columna A está el apellido.
+            * En la columna B está el nombre.
             * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
 
 9. **Plantillas en Word**: Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
     1. En el documento de Word, agregar la misma etiqueta de mapeo colocada en el archivo de configuración, pero rodeada por **'${‘** y **‘}’**, sin espacios entre ellos. Ejemplo:
         1. Si en el archivo de configuración, la etiqueta de mapeo es **#prueba**, en la plantilla debe colocarse **${#prueba}**.
             1. Config.cnf 
-            
+            ```
                [MAPEOS]
-               
                #prueba = A
+            ```
                
             2. Plantilla.docx
             
