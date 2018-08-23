@@ -258,4 +258,4 @@ Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para 
     php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
 ```
 
-3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas **_‘ruta_in’_** y **_‘ruta_out’_** del archivo de configuración, **no sean rutas relativas**, sino **absolutas**.
+3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas `ruta_in` y `ruta_out` del archivo de configuración, **no sean rutas relativas**, sino **absolutas**.
