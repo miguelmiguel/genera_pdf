@@ -113,42 +113,42 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
 
 ### 7. **MySQL**:
 1. Al obtener el proyecto desde el repositorio, en el mismo directorio donde se crea, se encontrará un script *‘db_tables.sql’* que tiene los comandos para crear las tablas de la base de datos del proyecto.
-2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **[CONF GENERAL]**, con la etiqueta *‘base_datos_app’*).
+2. En MySQL, se debe crear una base de datos (luego se debe suministrar su nombre en el archivo de configuración, en la sección **`[CONF GENERAL]`**, con la etiqueta `base_datos_app`).
 3. Luego, se debe ejecutar el script *‘db_tables.sql’* en la base de datos recientemente creada, y se crean las tablas necesarias para el proyecto.
 
 ### 8. **Archivo de configuración**:
 1. Se dejó un ejemplo de archivo de configuración en el proyecto, llamado *‘ejemplo.cnf’*. **No es recomendable usar ese archivo**, sino **crear otro que NO se guarde** en el repositorio, para no guardar contraseñas ni otra información sensible en el mismo.
 2. En el archivo de configuración, existen tres (3) secciones, y cada una tiene diferentes objetivos:
     1. **[CONF GENERAL]**: guarda la información general, necesaria para la ejecución del proyecto. Sus etiquetas son:
-        1. **ruta_in**: Ubicación del directorio donde se encontrarán todos los archivos de entrada del proceso a ejecutar (plantilla en word, archivo de datos en excel, etc.).
-        2. **ruta_out**: Ubicación del directorio donde se encontrarán los PDF que serán generados al ejecutar el proceso.
-        3. **archivo_bd**: Nombre del archivo de datos en excel.
-        4. **plantilla**: Nombre de la plantilla del documento en word.
-        5. **cabecera**: Indica si el archivo de datos en excel usa la primera fila para encabezados de los nombres de las columnas (Valores posibles: **“SI”** y **“NO”**).
-        6. **base_datos_app**: Nombre de la base de datos donde se registraran los resultados del proceso ejecutado.
-        7. **user_db**: Usuario de la base de datos.
-        8. **pass_db**: Contraseña de la base de datos.
-        9. **server_db**: Servidor donde se aloja la base de datos (Usualmente, localhost).
-        10. **cliente_archivo**: Cliente que se registrará en el proceso.
-        11. **soffice_path**: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
+        1. `ruta_in`: Ubicación del directorio donde se encontrarán todos los archivos de entrada del proceso a ejecutar (plantilla en word, archivo de datos en excel, etc.).
+        2. `ruta_out`: Ubicación del directorio donde se encontrarán los PDF que serán generados al ejecutar el proceso.
+        3. `archivo_bd`: Nombre del archivo de datos en excel.
+        4. `plantilla`: Nombre de la plantilla del documento en word.
+        5. `cabecera`: Indica si el archivo de datos en excel usa la primera fila para encabezados de los nombres de las columnas (Valores posibles: `“SI”` y `“NO”`).
+        6. `base_datos_app`: Nombre de la base de datos donde se registraran los resultados del proceso ejecutado.
+        7. `user_db`: Usuario de la base de datos.
+        8. `pass_db`: Contraseña de la base de datos.
+        9. `server_db`: Servidor donde se aloja la base de datos (Usualmente, `localhost`).
+        10. `cliente_archivo`: Cliente que se registrará en el proceso.
+        11. `soffice_path`: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
     2. **[FORMATO_NOMBRE_PDF]**: Esta sección tiene variables que ayudarán a configurar el nombre de los archivos de salida en PDF. Para esto se definen dos tipos de variables:
-        1. **fijo_X** (X es un número o letra para diferenciarlas): es un campo que no cambiará, es decir, se mantendrá el valor que se indica en el archivo de configuración. Ejemplo:
+        1. `fijo_X` (`X` es un número o letra para diferenciarlas): es un campo que no cambiará, es decir, se mantendrá el valor que se indica en el archivo de configuración. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
             fijo_1 = “dda”
             fijo_2 = “PROCESADO”
         ```
         
-        2. **variable_X**: es un campo que dependerá de los datos mapeados del archivo de datos de excel. Ejemplo:
+        2. `variable_X`: es un campo que dependerá de los datos mapeados del archivo de datos de excel. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
             variable_1 = #indice
             variable_2 = #nom_ddo
         ```
         
-        * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
-        * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
-        3. Los valores de estos campos fijos y variables, se utilizarán para crear el nombre de los archivos, en el orden en que sean escritos en el archivo de configuración, y serán separados entre ellos por ‘_’. Ejemplo:
+        * `variable_1` utilizará el valor que se mapee en la sección `[MAPEOS]` con la etiqueta `#indice`.
+        * `variable_2` utilizará el valor que se mapee en la sección `[MAPEOS]` con la etiqueta `#nom_ddo`.
+        3. Los valores de estos campos fijos y variables, se utilizarán para crear el nombre de los archivos, en el orden en que sean escritos en el archivo de configuración, y serán separados entre ellos por **‘_’**. Ejemplo:
         ```
             [FORMATO_NOMBRE_PDF]
             variable_a = #apellido
@@ -204,7 +204,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         
         * En la columna A está el apellido.
         * En la columna B está el nombre.
-        * La etiqueta **#nombre** en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
+        * La etiqueta `nombre` en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
        
     4. **[HOJAS_EXCEL]**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
         1. La etiqueta `hoja` se utiliza en esta sección para indicar cual se utilizará:
