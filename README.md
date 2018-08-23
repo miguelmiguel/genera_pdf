@@ -17,7 +17,7 @@
 
 ### 2. **Instalación de Composer**:
 
-       Composer es un manejador de dependencias, para librerías de PHP.
+Composer es un manejador de dependencias, para librerías de PHP.
     
 1. **En Linux**: Ejecutar los siguientes comandos desde el terminal, en el directorio donde descargó el proyecto, desde github:
 ```sh
