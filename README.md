@@ -36,7 +36,7 @@
     1. En Linux: Luego de tener instalado composer en el directorio donde se instaló el proyecto, se debe ejecutar el siguiente comando:
 ```sh
         php composer.phar require phpoffice/phpword
-```
+``` 
     2. En Windows: Luego de instalar composer, ir en el terminal, a la carpeta del nuevo proyecto y ejecutar el siguiente comando:
 ```sh
         composer require phpoffice/phpword
