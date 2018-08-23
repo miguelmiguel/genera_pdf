@@ -125,20 +125,34 @@
             11. **soffice_path**: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
         2. **[FORMATO_NOMBRE_PDF]**: Esta sección tiene variables que ayudarán a configurar el nombre de los archivos de salida en PDF. Para esto se definen dos tipos de variables:
             1. **fijo_X** (X es un número o letra para diferenciarlas): es un campo que no cambiará, es decir, se mantendrá el valor que se indica en el archivo de configuración. Ejemplo:
-                1. fijo_1 = “dda”
-                2. fijo_2 = “PROCESADO”
+            ```
+                [FORMATO_NOMBRE_PDF]
+                fijo_1 = “dda”
+                fijo_2 = “PROCESADO”
+            ```
+            
             2. **variable_X**: es un campo que dependerá de los datos mapeados del archivo de datos de excel. Ejemplo:
-                1. variable_1 = #indice (utilizará el valor que se mapee en la sección [MAPEOS] con la etiqueta #indice)
-                2. variable_2 = #nom_ddo
+            ```
+                [FORMATO_NOMBRE_PDF]
+                variable_1 = #indice
+                variable_2 = #nom_ddo
+            ```
+            
+            * **variable_1** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#indice**.
+            * **variable_2** utilizará el valor que se mapee en la sección **[MAPEOS]** con la etiqueta **#nom_ddo**.
             3. Los valores de estos campos fijos y variables, se utilizarán para crear el nombre de los archivos, en el orden en que sean escritos en el archivo de configuración, y serán separados entre ellos por ‘_’. Ejemplo:
-                1. variable_a = #apellido
-                2. fijo_1 = “USUARIO”
-                3. variable_b = #rut
-                4. fijo_2 = DOCUMENTO
-                5. variable_c = #indice
-                
-                   El nombre de archivo final sería:
-                   **PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf**
+            ```
+                [FORMATO_NOMBRE_PDF]
+                variable_a = #apellido
+                fijo_1 = “USUARIO”
+                variable_b = #rut
+                fijo_2 = DOCUMENTO
+                variable_c = #indice
+            ```
+            * El nombre de archivo final sería:
+            
+              **PEREZ_USUARIO_1234567-8_DOCUMENTO_24.pdf**
+            
                    
         3. **[MAPEOS]**: Esta sección tiene los campos que se extraerán del archivo de datos en excel. Se colocará la etiqueta y la letra de la columna del archivo en excel donde se encuentra ese campo. 
             1. La letra indica la columna del archivo de base de datos. Ejemplo:
@@ -199,7 +213,13 @@
                 
 10. **Ejecución del proceso**: 
     1. Se debe ir al directorio donde se encuentra el proyecto y ejecutar lo siguiente:
-        1. *php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf* 
+    ```sh
+        php  generar_pdf.php  nombre_del_archivo_de_configuración.cnf
+    ```
+    
     2. También se puede ejecutar fuera del directorio del proyecto, indicando la ruta completa del ejecutable ‘generar_pdf.php’. Ejemplo:
-        1. *php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf*
+    ```sh
+        php /ruta/del/proyecto/local/generar_pdf.php /archivo/de/configuracion.cnf
+    ```
+    
     3. En este último caso (ejecución fuera del directorio del proyecto), es importante que las rutas **_‘ruta_in’_** y **_‘ruta_out’_** del archivo de configuración, **no sean rutas relativas**, sino **absolutas**.
