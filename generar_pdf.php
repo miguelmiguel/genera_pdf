@@ -50,6 +50,13 @@ if (!empty($config)) {
     else{
         $sheetnames = NULL;
     }
+    
+    if (array_key_exists("FORMATOS_MAP",$config) && !empty($config['FORMATOS_MAP'])){
+        $special_format = $config['FORMATOS_MAP'];
+    }
+    else{
+        $special_format = NULL;
+    }
 }
 else{
     $mapping_variables = NULL;
@@ -145,8 +152,8 @@ if ($general_config != NULL && $mapping_variables != NULL){
         if (file_exists($input_file_name) && is_readable($input_file_name) && !is_dir($input_file_name) ){
             $input_data = readSheetFile(realpath($input_file_name), $sheetnames);
             #var_dump($input_data);
-            $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format, $ignore_first_line);
-            #var_dump($mapped_data);
+            $mapped_data = mapSheetData($mapping_variables, $input_data, $pdf_filename_format, $ignore_first_line, $special_format);
+            //var_dump($mapped_data);
         }
         else{
             exit('"archivo_bd" ' . $input_file_name . " NO EXISTE O NO SE PUEDE LEER ESTE ARCHIVO\n");

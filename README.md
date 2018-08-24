@@ -130,7 +130,11 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         8. `pass_db`: Contraseña de la base de datos.
         9. `server_db`: Servidor donde se aloja la base de datos (Usualmente, `localhost`).
         10. `cliente_archivo`: Cliente que se registrará en el proceso.
-        11. `soffice_path`: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
+        11. `simbolo_moneda`: Símbolo de moneda para los campos mapeados de moneda (Si no se agrega, por defecto es `$`).
+        12. `separador_decimal`: Símbolo separador de decimales en los campos mapeados de moneda (Si no se agrega, por defecto es `,`).
+        13. `separador_millares`: Símbolo separador de millares en los campos mapeados de moneda (Si no se agrega, por defecto es `.`).
+        14. `formato_fecha`: Formato de fecha para los campos mapeados que son fechas (Si no se agrega, por defecto es `"d/m/Y"`).
+        15. `soffice_path`: Dirección donde se encuentra el ejecutable de LibreOffice (Sólo es necesario si el servidor donde se ejecuta el proceso es Windows).
     2. **`[FORMATO_NOMBRE_PDF]`**: Esta sección tiene variables que ayudarán a configurar el nombre de los archivos de salida en PDF. Para esto se definen dos tipos de variables:
         1. `fijo_X` (`X` es un número o letra para diferenciarlas): es un campo que no cambiará, es decir, se mantendrá el valor que se indica en el archivo de configuración. Ejemplo:
         ```
@@ -207,7 +211,7 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         * La etiqueta `nombre` en plantilla de word será sustituída por **“APELLIDO NOMBRE”**.
        
     4. **`[HOJAS_EXCEL]`**: Esta sección tiene los nombres de las hojas que se van a procesar en el archivo de excel.
-        1. La etiqueta `hoja` se utiliza en esta sección para indicar cual se utilizará:
+        1. La etiqueta `hoja` se coloca en esta sección para indicar cual se utilizará:
         ```
             [HOJAS_EXCEL]
             hoja = "Hoja1"
@@ -229,6 +233,26 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
         ```
         
         5. Si no se define la sección `[HOJAS_EXCEL]` o no se incluye la variable `hoja` en esta sección, el proceso leerá todas las hojas del archivo de excel.
+        
+       
+    5. **`[FORMATOS_MAP]`**: Esta sección sirve para indicar algún campo de los mapeos en `[MAPEOS]` que recibirá un tipo que necesita formato especial. 
+        Por ahora, solo están desarrollados formatos para `"FECHA"` y `"MONEDA"`.
+        1. La etiqueta que se añadirá en esta sección será la misma añadida en `[MAPEOS]`. Ejemplo:
+        ```
+            [MAPEOS]
+            .
+            .
+            .
+            #fecha = A
+            #monto = B
+            .
+            .
+            .
+            
+            [FORMATOS_MAP]
+            #fecha = "FECHA"
+            #monto = "MONEDA"
+        ```
         
 ### 9. **Plantillas en Word**:
 

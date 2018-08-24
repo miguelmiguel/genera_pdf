@@ -29,7 +29,7 @@ function readSheetFile($inputFileName, $sheetnames = NULL){
     return $sheetData;
 }
 
-function mapSheetData($mapping_variables, $workbook_data, $filename_format, $ignore_first_line){
+function mapSheetData($mapping_variables, $workbook_data, $filename_format, $ignore_first_line, $special_format){
     $mapped_data = array();
     foreach ($workbook_data as $sheet_data){
         $is_first_row = TRUE;
@@ -68,6 +68,19 @@ function mapSheetData($mapping_variables, $workbook_data, $filename_format, $ign
                     else{
                         $mapped_element = $sheet_row[$value];
                     }
+                    
+                    # Special Format Modifications (Currency and Dates)
+                    if(array_key_exists($key,$special_format)){
+                        if($special_format[$key]=="FECHA"){
+                            //$mapped_element = date("Y-m-d H:i:s", ($mapped_element - 25569) * 86400 );
+                            $date_mapped = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject(trim($mapped_element));
+                            $mapped_element = $date_mapped->format(DATE_CONFIG);
+                        }
+                        elseif($special_format[$key]=="MONEDA"){
+                            $mapped_element = CURRENCY_SYMBOL . number_format(trim($mapped_element),2,DECIMAL_SYMBOL,MILLIARD_SYMBOL);
+                        }
+                    }
+                    
                     $mapped_row[$key] = preg_replace('/\s\s+/', ' ', trim($mapped_element));
                 }
                 

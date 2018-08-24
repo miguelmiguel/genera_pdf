@@ -22,7 +22,47 @@ if (!empty($conf)) {
 }
 else{
     $gen_conf = NULL;
+}
+
+$decimal_symbol = ",";
+$milliard_symbol = ".";
+$currency_symbol = "$";
+$date_config = "d/m/Y";
+if ( $gen_conf ){
     
+    if(array_key_exists("separador_decimal",$gen_conf)){
+        define("DECIMAL_SYMBOL", $gen_conf["separador_decimal"]);
+    }
+    else{
+        define("DECIMAL_SYMBOL", $decimal_symbol);
+    }
+    
+    if(array_key_exists("separador_millares",$gen_conf)){
+        define("MILLIARD_SYMBOL", $gen_conf["separador_millares"]);
+    }
+    else{
+        define("MILLIARD_SYMBOL", $milliard_symbol);
+    }
+    
+    if(array_key_exists("simbolo_moneda",$gen_conf)){
+        define("CURRENCY_SYMBOL", $gen_conf["simbolo_moneda"]);
+    }
+    else{
+        define("CURRENCY_SYMBOL", $currency_symbol);
+    }
+    
+    if(array_key_exists("formato_fecha",$gen_conf)){
+        define("DATE_CONFIG", $gen_conf["formato_fecha"]);
+    }
+    else{
+        define("DATE_CONFIG", $date_config);
+    }
+}
+else{
+    define("DECIMAL_SYMBOL", $decimal_symbol);
+    define("CURRENCY_SYMBOL", $currency_symbol);
+    define("MILLIARD_SYMBOL", $milliard_symbol);
+    define("DATE_CONFIG", $date_config);
 }
 
 
