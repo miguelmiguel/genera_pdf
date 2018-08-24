@@ -254,6 +254,8 @@ Se puede encontrar información de esta librería en las siguientes direcciones:
             #monto = "MONEDA"
         ```
         
+        2. Si uno de los campos que debe formatearse a `"FECHA"` o `"MONEDA"` no se añade a esta sección, se quedará con el formato básico.
+        
 ### 9. **Plantillas en Word**:
 
 Se debe agregar las etiquetas que serán cambiadas por los datos a mapear. Para agregar las etiquetas se debe hacer lo siguiente:
