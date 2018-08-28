@@ -101,7 +101,7 @@ function mapSheetData($mapping_variables, $workbook_data, $filename_format, $ign
                 }
                 $mapped_filename = preg_replace('/\s\s+/', '_', trim(implode('_',$mapped_filename)));
                 
-                $mapped_filename = preg_replace("/[^A-Za-z0-9ñÑ_-áÁéÉíÍóÓúÚüÜ]/", '', $mapped_filename);
+                $mapped_filename = preg_replace("/[^A-Za-z0-9ñÑ_\-áÁéÉíÍóÓúÚüÜ]/", '', $mapped_filename);
                 $mapped_row['$filename'] = $mapped_filename;
                 
                 $mapped_data[]=$mapped_row;
