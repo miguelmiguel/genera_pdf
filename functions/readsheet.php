@@ -70,7 +70,7 @@ function mapSheetData($mapping_variables, $workbook_data, $filename_format, $ign
                     }
                     
                     # Special Format Modifications (Currency and Dates)
-                    if(array_key_exists($key,$special_format)){
+                    if($special_format !== NULL && is_array($special_format) && array_key_exists($key,$special_format)){
                         if($special_format[$key]=="FECHA"){
                             //$mapped_element = date("Y-m-d H:i:s", ($mapped_element - 25569) * 86400 );
                             $date_mapped = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject(trim($mapped_element));
